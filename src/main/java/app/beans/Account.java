@@ -20,10 +20,12 @@ public class Account {
         this.number = number;
     }
 
+    @BasicAuthorization()
     public String getBalance() {
         return balance;
     }
 
+    @BasicAuthorization(policyName = "classified")
     public void setBalance(String balance) {
         this.balance = balance;
     }
