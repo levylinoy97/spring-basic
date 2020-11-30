@@ -1,4 +1,4 @@
-package app.beans;
+package app.beans.aspects;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

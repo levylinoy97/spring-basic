@@ -1,8 +1,11 @@
 package app.beans;
 
+import app.annotations.BasicAuthorization;
+import app.annotations.BasicMeasurement;
 import org.springframework.stereotype.Component;
 
 @Component
+@BasicMeasurement
 public class Account {
     private String number;
     private String balance;
