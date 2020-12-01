@@ -1,6 +1,7 @@
 package app.data;
 
 import app.beans.Address;
+import app.mappers.AddressMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -72,5 +73,10 @@ public class AddressDAO {
         parameters.put("country", address.getCountry());
         parameters.put("zipcode", address.getZipCode());
         namedParameterJdbcTemplate.update(sql, parameters);
+    }
+
+    public Address getAddressById(String address1) {
+        String sql = "select * from address where address1 = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{address1}, new AddressMapper());
     }
 }

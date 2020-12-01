@@ -14,7 +14,9 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 @Getter
 @Setter
+@ToString
 @LevSampleAnnotation
+@Builder
 public class Address {
     @NonNull
     private String address1;
