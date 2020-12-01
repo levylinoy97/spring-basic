@@ -28,11 +28,11 @@ public class SpringMain {
         AddressDAO dao = ctx.getBean(AddressDAO.class);
         System.out.println("Number of addresses: " + dao.count());
 
-        dao.deleteAll();
-        System.out.println("Deleted all");
+        /*dao.deleteAll();
+        System.out.println("Deleted all");*/
 
-        /*dao.deleteByPK("1", "1","1","1");
-        System.out.println("Deleted by PK: 1, 1, 1, 1");*/
+        dao.deleteByPK("1", "1","1","1");
+        System.out.println("Deleted by PK: 1, 1, 1, 1");
 
         ctx.close();
     }

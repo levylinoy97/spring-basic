@@ -28,6 +28,8 @@ public class AddressDAO {
 
         jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);
+
+        namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 
     /*@Autowired
@@ -50,7 +52,7 @@ public class AddressDAO {
         jdbcTemplate.execute(sql);
     }
 
-    /*public void deleteByPK(String address1, String city, String country, String zipcode) {
+    public void deleteByPK(String address1, String city, String country, String zipcode) {
         String sql = "delete from address where address1 = :address1 and city = :city and country = :country and zipcode = :zipcode";
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("address1", address1);
@@ -58,5 +60,5 @@ public class AddressDAO {
         parameters.put("country", country);
         parameters.put("zipcode", zipcode);
         namedParameterJdbcTemplate.update(sql, parameters);
-    }*/
+    }
 }
