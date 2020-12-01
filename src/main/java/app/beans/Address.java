@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 @Component
 @Scope("prototype")
 @NoArgsConstructor
+@AllArgsConstructor
 @RequiredArgsConstructor
 @Getter
 @Setter

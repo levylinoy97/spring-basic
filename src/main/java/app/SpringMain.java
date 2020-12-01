@@ -1,5 +1,6 @@
 package app;
 
+import app.beans.Address;
 import app.conf.BasicConfiguration;
 import app.conf.BasicDbConfiguration;
 import app.data.AddressDAO;
@@ -26,13 +27,20 @@ public class SpringMain {
         account.setBalance("100");
         System.out.println("the balance is: " + account.getBalance());*/
         AddressDAO dao = ctx.getBean(AddressDAO.class);
+
+        dao.insertAddress(Address.builder().address1("1").address2("1").city("1").country("1").zipCode("1").build());
+        System.out.println("Inserted address");
+
+        /*dao.insertAddress(Address.builder().address1("address1").address2("address2").city("city").country("country").zipCode("zipcode").build());
+        System.out.println("Inserted address");*/
+
         System.out.println("Number of addresses: " + dao.count());
 
         /*dao.deleteAll();
         System.out.println("Deleted all");*/
 
-        dao.deleteByPK("1", "1","1","1");
-        System.out.println("Deleted by PK: 1, 1, 1, 1");
+        /*dao.deleteByPK("1", "1","1","1");
+        System.out.println("Deleted by PK: 1, 1, 1, 1");*/
 
         ctx.close();
     }

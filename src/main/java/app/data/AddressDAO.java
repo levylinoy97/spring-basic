@@ -1,5 +1,6 @@
 package app.data;
 
+import app.beans.Address;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -59,6 +60,17 @@ public class AddressDAO {
         parameters.put("city", city);
         parameters.put("country", country);
         parameters.put("zipcode", zipcode);
+        namedParameterJdbcTemplate.update(sql, parameters);
+    }
+
+    public void insertAddress(Address address) {
+        String sql = "insert into address (address1, address2, city, zipcode, country) values (:address1, :address2, :city, :zipcode, :country)";
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("address1", address.getAddress1());
+        parameters.put("address2", address.getAddress2());
+        parameters.put("city", address.getCity());
+        parameters.put("country", address.getCountry());
+        parameters.put("zipcode", address.getZipCode());
         namedParameterJdbcTemplate.update(sql, parameters);
     }
 }
